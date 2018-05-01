@@ -1,3 +1,8 @@
+<?php
+	$erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
+
+?>
+
 <!DOCTYPE HTML>
 <html lang="pt-br">
 	<head>
@@ -12,7 +17,34 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	
 		<script>
-			// código javascript						
+			// código javascript
+			$(document).ready( function(){
+				
+				$('#btn_login').click(function(){
+					var campo_vazio = false;
+
+
+
+					if($('#campo_usuario').val() == ''){
+						$('#campo_usuario').css({'border-color': '#A94442'});
+						campo_vazio = true;
+
+					} else {
+						$('#campo_usuario').css({'border-color': '#CCC'});
+					}
+					if($('#campo_senha').val() == ''){
+						$('#campo_senha').css({'border-color': '#A94442'});
+						campo_vazio = true;
+
+					}else {
+						$('#campo_senha').css({'border-color': '#CCC'});
+					}
+					if(campo_vazio) return false;
+
+				});
+
+			});
+
 		</script>
 	</head>
 
@@ -34,7 +66,7 @@
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav navbar-right">
 	            <li><a href="inscrevase.php">Inscrever-se</a></li>
-	            <li class="">
+	            <li class="<?= $erro == 1 ? 'open' : '' ?>">
 	            	<a id="entrar" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar</a>
 					<ul class="dropdown-menu" aria-labelledby="entrar">
 						<div class="col-md-12">
@@ -54,6 +86,12 @@
 								<br /><br />
 								
 							</form>
+							<?php
+								if($erro == 1) {
+									echo '<font color="#FF0000">Usúario  e ou senha inválido(s)</font>';
+								}
+
+							?>
 						
 				  	</ul>
 	            </li>
