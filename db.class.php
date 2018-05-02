@@ -4,7 +4,7 @@
 class db {
     private $host = 'localhost';
     private $usuario = 'root';
-    private $senha = 'senha4321';
+    private $senha = 'root';
     private $database = 'twitter';
 
 
