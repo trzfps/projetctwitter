@@ -55,7 +55,7 @@
 						<input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required="requiored">
 						<?php
 							if($erro_usuario == 1){
-								echo "Usuário já existe";
+								echo '<font style="color:#FF0000">Usuário já existe</font>';
 							}
 
 						?>
@@ -65,7 +65,7 @@
 						<input type="email" class="form-control" id="email" name="email" placeholder="Email" required="requiored">
 						<?php
 							if($erro_email == 1){
-								echo "Email já existe";
+								echo '<font style="color:#FF0000">Email já existe</font>';
 							}
 
 						?>

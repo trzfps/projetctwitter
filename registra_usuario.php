@@ -48,8 +48,9 @@
                 $retorno_get.= "erro_email=1&";
             }
             header('Location: inscrevase.php?'.$retorno_get);
+            die();
         }
-        die();
+        
     $sql = " insert into usuarios(usuario, email, senha) values ('$usuario', '$email', '$senha') ";
 
     //executar query 
