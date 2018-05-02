@@ -25,12 +25,12 @@
             echo "Erro ao tentar localizar o registro de úsuario";
         }
         //verificar se email já existe
-        $sql = " select * from usuarios where email = 'email' ";
+        $sql = " select * from usuarios where email = '$email' ";
         if($resultado_id = mysqli_query($link,$sql)){
 
             $dados_usuario =  mysqli_fetch_array($resultado_id);
 
-            if(isset($dados_usuario['email'])){
+            if(isset($dados_usuario['usuario'])){
                 echo "Email já cadastrado";
             }else {
                 echo "Email não cadastrado";
