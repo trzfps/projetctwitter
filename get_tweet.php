@@ -12,7 +12,7 @@
     $objDb = new db();
     $link = $objDb->conecta_mysql();
 
-    $sql = "SELECT t.data_inclusao, t.tweet, u.usuario ";
+    $sql = "SELECT DATE_FORMAT(t.data_inclusao,'%d %b %Y %T') AS data_inclusao, t.tweet, u.usuario ";
     $sql.=" FROM tweet AS t JOIN usuarios AS u ON (t.id_usuario = u.id) ";
     $sql.= " WHERE id_usuario = $id_usuario ORDER BY data_inclusao DESC";
 

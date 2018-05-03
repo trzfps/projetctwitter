@@ -31,7 +31,7 @@
 								data: $('#form_tweet').serialize(),
 								success: function(data){
 									$('#texto_tweet').val('');
-									alert('Tweet incluído com sucesso');
+									atualizaTweet();
 								}
 							});
 					}
