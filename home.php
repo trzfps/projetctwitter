@@ -36,8 +36,19 @@
 							});
 					}
 
-				});	
+				});
 
+				function atualizaTweet(){
+					//Recarregar os tweets
+					$.ajax({
+							url: 'get_tweet.php',
+							success: function(data){
+								$('#tweets').html(data);
+								
+							}
+					});
+				}
+					atualizaTweet();
 
 			});
 		</script>
@@ -99,6 +110,9 @@
 								</span>
 							</form>
 						</div>
+					</div>
+					<div id="tweets" class="list-group">
+
 					</div>
 				</div>
 				<div class="col-md-3">
