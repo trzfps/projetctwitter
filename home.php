@@ -25,7 +25,14 @@
 				$('#btn_tweet').click(	function(){
 					
 					if($('#texto_tweet').val().length > 0){
-							alert('Campo preenchido');
+							$.ajax({
+								url: 'inclui_tweet.php',
+								method: 'post',
+								data: $('#form_tweet').serialize(),
+								success: function(data){
+									alert(data);
+								}
+							});
 					}
 
 				});	
@@ -84,12 +91,12 @@
 	    	<div class="col-md-6">
 					<div class="panel panel-default">
 						<div class="panel-body">
-							<div class="input-group">
-								<input type="text" id="texto_tweet" class="form-control" placeholder="O que está acontecendo agora?" maxlength="140">
+							<form id="form_tweet" class="input-group">
+								<input type="text" id="texto_tweet" name="texto_tweet" class="form-control" placeholder="O que está acontecendo agora?" maxlength="140">
 								<span class="input-group-btn">
 									<button class="btn btn-default" id="btn_tweet" type="button">Tweet</button>
 								</span>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>
